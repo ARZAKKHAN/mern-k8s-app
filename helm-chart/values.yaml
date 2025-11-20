@@ -1,0 +1,65 @@
+namespace: mern-app
+
+mongodb:
+  enabled: true
+  image:
+    repository: mongo
+    tag: "7.0"
+    pullPolicy: IfNotPresent
+  service:
+    port: 27017
+  persistence:
+    enabled: true
+    size: 1Gi
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+backend:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: YOUR_DOCKERHUB_USERNAME/mern-backend
+    tag: latest
+    pullPolicy: Always
+  service:
+    port: 5000
+  env:
+    PORT: "5000"
+    MONGODB_URI: "mongodb://mongodb-service:27017/mernapp"
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+frontend:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: YOUR_DOCKERHUB_USERNAME/mern-frontend
+    tag: latest
+    pullPolicy: Always
+  service:
+    port: 80
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: mern-app.local
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
