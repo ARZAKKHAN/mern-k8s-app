@@ -23,7 +23,7 @@ backend:
   enabled: true
   replicaCount: 2
   image:
-    repository: YOUR_DOCKERHUB_USERNAME/mern-backend
+    repository: arzakkhan/mern-backend
     tag: latest
     pullPolicy: Always
   service:
@@ -43,7 +43,7 @@ frontend:
   enabled: true
   replicaCount: 2
   image:
-    repository: YOUR_DOCKERHUB_USERNAME/mern-frontend
+    repository: arzakkhan/mern-frontend
     tag: latest
     pullPolicy: Always
   service:
