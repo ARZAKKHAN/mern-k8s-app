@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: mern-app.local
+  - host: mern.local
     http:
       paths:
       - path: /api
