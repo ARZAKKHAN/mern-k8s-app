@@ -61,5 +61,4 @@ ingress:
   className: nginx
   host: mern-app.local
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
