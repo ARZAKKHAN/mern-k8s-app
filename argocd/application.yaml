@@ -7,7 +7,7 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/YOUR_GITHUB_USERNAME/mern-k8s-app.git
+    repoURL: https://github.com/ARZAKKHAN/mern-k8s-app.git
     targetRevision: HEAD
     path: helm-chart
     helm:
